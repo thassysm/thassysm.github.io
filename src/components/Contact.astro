@@ -1,0 +1,78 @@
+---
+import Icon from './Icon.astro';
+import { profile } from '../data/site';
+
+const wa = `https://wa.me/${profile.phoneRaw}?text=${encodeURIComponent(profile.whatsappMessage)}`;
+
+const contacts = [
+  {
+    icon: 'whatsapp',
+    label: 'WhatsApp',
+    value: profile.phone,
+    href: wa,
+    external: true,
+  },
+  {
+    icon: 'mail',
+    label: 'E-mail',
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+    external: false,
+  },
+  {
+    icon: 'linkedin',
+    label: 'LinkedIn',
+    value: '/in/thassys',
+    href: profile.linkedin,
+    external: true,
+  },
+  {
+    icon: 'github',
+    label: 'GitHub',
+    value: '@thassysm',
+    href: profile.github,
+    external: true,
+  },
+];
+---
+
+<section class="section" id="contato">
+  <div class="container">
+    <div class="contact-panel" data-reveal>
+      <div class="contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">Contato</span>
+          <h2>Vamos tirar o próximo projeto do papel?</h2>
+          <p>
+            Me conte o desafio: dados espalhados, relatórios que ninguém confia, processo
+            manual demais ou uma ideia de IA que precisa sair do PowerPoint. Respondo
+            pessoalmente.
+          </p>
+
+          <div class="contact-note">
+            <span><Icon name="pin" size={14} /> Curitiba, PR — atendimento remoto</span>
+            <span><Icon name="clock" size={14} /> Retorno em até 1 dia útil</span>
+          </div>
+        </div>
+
+        <div class="contact-list">
+          {contacts.map((contact) => (
+            <a
+              class="contact-link"
+              href={contact.href}
+              target={contact.external ? '_blank' : undefined}
+              rel={contact.external ? 'noopener' : undefined}
+            >
+              <span class="ci"><Icon name={contact.icon} size={17} /></span>
+              <span class="ct">
+                <small>{contact.label}</small>
+                <strong>{contact.value}</strong>
+              </span>
+              <span class="arrow"><Icon name="arrow" size={16} /></span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

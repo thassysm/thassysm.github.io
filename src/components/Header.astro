@@ -1,0 +1,102 @@
+---
+import Icon from './Icon.astro';
+import { profile } from '../data/site';
+
+const wa = `https://wa.me/${profile.phoneRaw}?text=${encodeURIComponent(profile.whatsappMessage)}`;
+
+const links = [
+  { href: '#servicos', label: 'Serviços' },
+  { href: '#projetos', label: 'Projetos' },
+  { href: '#stack', label: 'Stack' },
+  { href: '#trajetoria', label: 'Trajetória' },
+  { href: '#contato', label: 'Contato' },
+];
+---
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="Thassys Meira — início">
+      <span class="brand-mark">TM</span>
+      <span class="brand-text">
+        <span class="brand-name">Thassys Meira</span>
+        <span class="brand-role">Dados · BI · Automação · IA</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn--ghost btn--sm" href={`mailto:${profile.email}`}>
+        <Icon name="mail" size={15} />
+        E-mail
+      </a>
+      <a class="btn btn--primary btn--sm" href={wa} target="_blank" rel="noopener" aria-label="Falar comigo no WhatsApp">
+        <Icon name="whatsapp" size={15} />
+        <span class="btn-label">Falar comigo</span>
+      </a>
+      <button
+        class="menu-btn"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        data-menu-btn
+      >
+        <Icon name="menu" size={20} />
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    {links.map((link) => (
+      <li>
+        <a href={link.href}>{link.label}</a>
+      </li>
+    ))}
+    <li>
+      <a href={wa} target="_blank" rel="noopener">WhatsApp · {profile.phone}</a>
+    </li>
+  </ul>
+</div>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const menuBtn = document.querySelector<HTMLButtonElement>('[data-menu-btn]');
+  const mobileNav = document.querySelector<HTMLElement>('[data-mobile-nav]');
+
+  const onScroll = () => {
+    header?.classList.toggle('is-scrolled', window.scrollY > 10);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const setOpen = (open: boolean) => {
+    if (!menuBtn || !mobileNav) return;
+    mobileNav.classList.toggle('is-open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    menuBtn.innerHTML = open
+      ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+      : '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  };
+
+  menuBtn?.addEventListener('click', () => {
+    setOpen(!mobileNav?.classList.contains('is-open'));
+  });
+
+  mobileNav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) setOpen(false);
+  });
+</script>

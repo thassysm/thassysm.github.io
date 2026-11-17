@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import { services } from '../data/site';
+---
+
+<section class="section" id="servicos">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Serviços</span>
+      <h2>Do dado bruto à decisão — com engenharia, não com gambiarra.</h2>
+      <p>
+        Atuo ponta a ponta: arquitetura de dados, integrações, BI, automação e IA aplicada.
+        Cada entrega nasce documentada, monitorada e pronta para crescer.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      {services.map((service, index) => (
+        <article class="card" data-reveal style={`--delay:${index * 60}ms`}>
+          <div class="icon-box">
+            <Icon name={service.icon} size={21} />
+          </div>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <ul class="tags">
+            {service.tags.map((tag) => <li class="tag">{tag}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

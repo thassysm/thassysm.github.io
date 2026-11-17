@@ -1,0 +1,42 @@
+---
+import Icon from './Icon.astro';
+import { education, certifications, languages } from '../data/site';
+---
+
+<section class="section section--tight" id="formacao">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Formação & certificações</span>
+      <h2>Base técnica com certificação de mercado.</h2>
+    </div>
+
+    <div class="edu-grid">
+      <div data-reveal>
+        {education.map((item) => (
+          <div class="edu-item">
+            <h3>{item.title}</h3>
+            <p>{item.institution} · <span>{item.period}</span></p>
+          </div>
+        ))}
+
+        <div class="edu-item">
+          <h3>Idiomas</h3>
+          {languages.map((lang) => (
+            <p>{lang.name} — {lang.level}</p>
+          ))}
+        </div>
+      </div>
+
+      <div data-reveal style="--delay:100ms">
+        <ul class="cert-list">
+          {certifications.map((cert) => (
+            <li>
+              <Icon name="check" size={15} />
+              {cert}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

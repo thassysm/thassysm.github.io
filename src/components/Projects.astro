@@ -1,0 +1,45 @@
+---
+import Icon from './Icon.astro';
+import { projects, otherDeliveries } from '../data/site';
+---
+
+<section class="section" id="projetos">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Projetos entregues</span>
+      <h2>Resultado medido, não promessa de slide.</h2>
+      <p>
+        Uma seleção de projetos concluídos em saúde, finanças e operações — com o impacto
+        que cada um gerou para o negócio.
+      </p>
+    </div>
+
+    <div class="projects">
+      {projects.map((project, index) => (
+        <article
+          class:list={['project', { 'project--featured': project.featured }]}
+          data-reveal
+          style={`--delay:${index * 50}ms`}
+        >
+          <div class="project-top">
+            <span class="project-cat">{project.category}</span>
+            <Icon name="arrow" size={16} />
+          </div>
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          <div class="metric">
+            <b>{project.metric}</b>
+            <span>{project.metricLabel}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="extra" data-reveal>
+      <p class="extra-title">Também entregue</p>
+      <ul>
+        {otherDeliveries.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

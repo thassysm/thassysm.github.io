@@ -1,0 +1,31 @@
+---
+import { experience } from '../data/site';
+---
+
+<section class="section" id="trajetoria">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Trajetória</span>
+      <h2>12+ anos resolvendo dados em ambientes críticos.</h2>
+      <p>
+        Da infraestrutura ao board: passagem por saúde, software, operadoras e consultoria,
+        sempre conectando o técnico ao que o negócio precisa.
+      </p>
+    </div>
+
+    <ol class="timeline">
+      {experience.map((job, index) => (
+        <li data-reveal style={`--delay:${index * 60}ms`}>
+          <div class="job-head">
+            <h3>{job.role}</h3>
+            <span class="job-company">{job.company}</span>
+          </div>
+          <div class="job-meta">{job.period} · {job.location}</div>
+          <ul class="job-points">
+            {job.highlights.map((point) => <li>{point}</li>)}
+          </ul>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

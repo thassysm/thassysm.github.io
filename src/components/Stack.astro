@@ -1,0 +1,27 @@
+---
+import { stack } from '../data/site';
+---
+
+<section class="section" id="stack">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Stack</span>
+      <h2>Ferramentas que eu domino — e sei quando não usar.</h2>
+      <p>
+        Tecnologia é meio, não fim. Escolho a stack pelo contexto do negócio, pelo custo
+        total e pela facilidade de manutenção do time.
+      </p>
+    </div>
+
+    <div class="stack-grid">
+      {stack.map((group, index) => (
+        <div class="stack-card" data-reveal style={`--delay:${index * 50}ms`}>
+          <h3>{group.group}</h3>
+          <ul class="stack-list">
+            {group.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

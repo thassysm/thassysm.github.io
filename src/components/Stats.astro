@@ -1,0 +1,14 @@
+---
+import { stats } from '../data/site';
+---
+
+<section class="stats" aria-label="Resultados em números">
+  <div class="container stats-grid">
+    {stats.map((stat) => (
+      <div class="stat">
+        <b>{stat.value}</b>
+        <span>{stat.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
