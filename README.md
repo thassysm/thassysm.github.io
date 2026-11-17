@@ -27,46 +27,51 @@ Ao trocar o domínio, atualize também:
 2. `public/robots.txt`
 3. `public/sitemap.xml`
 
-## Publicar (recomendado: Cloudflare Pages)
+## Publicar (GitHub Pages — automático)
 
-O plano gratuito do Cloudflare Pages permite uso comercial e não cobra tráfego.
-O plano Hobby do Vercel é **apenas para uso pessoal/não comercial** — como o site é da
-sua empresa (CNPJ), no Vercel seria necessário o plano Pro (US$ 20/mês).
+O site está publicado em **https://thassysm.github.io** pelo GitHub Pages.
+O repositório é <https://github.com/thassysm/thassysm.github.io> (repo de site de usuário,
+por isso a URL fica na raiz, sem subpasta).
 
-1. O repositório já está criado: <https://github.com/thassysm/thassys-site>.
-2. Em <https://dash.cloudflare.com> → **Workers & Pages** → **Create** → **Pages** →
-   **Connect to Git**.
-3. Selecione o repositório e configure:
-   - Framework preset: **Astro**
-   - Build command: `npm run build`
-   - Output directory: `dist`
-   - Variável de ambiente: `NODE_VERSION` = `22.23.4` (Astro 7 exige Node ≥ 22.23.4)
-4. Em **Custom domains**, adicione `tminfoia.com.br` e `www.tminfoia.com.br`.
-5. Se o domínio estiver cadastrado no Cloudflare (nameservers apontando para ele),
-   o DNS e o certificado SSL são criados automaticamente.
+O deploy é automático: todo `git push` na branch `master` dispara o workflow
+`.github/workflows/deploy.yml`, que instala as dependências, roda `npm run build` e publica
+a pasta `dist/`.
 
-### Publicar sem GitHub (upload direto via CLI)
-
-Útil para colocar no ar hoje, com URL `https://thassys-site.pages.dev`:
+Acompanhar um deploy:
 
 ```bash
-npx wrangler login                                  # abre o navegador para autorizar
-npx wrangler pages project create thassys-site --production-branch main
-npm run build
-npx wrangler pages deploy dist --project-name thassys-site
+gh run list --limit 5
+gh run watch
 ```
 
-Depois, em **Custom domains**, basta adicionar o domínio quando ele for registrado.
-Cada novo deploy é só repetir `npm run build && npx wrangler pages deploy dist --project-name thassys-site`.
+### Ativar o Pages na primeira vez
 
-### Alternativas
+Em **Settings → Pages → Build and deployment**, selecione **GitHub Actions** como source.
+Depois disso, cada push publica automaticamente.
+
+### Alternativa: Cloudflare Pages
+
+Se um dia quiser o CDN da Cloudflare, o projeto já está pronto: conecte o repositório em
+**Workers & Pages → Create → Pages → Connect to Git**, use `npm run build` + `dist` e
+defina `NODE_VERSION=22.23.4`. O plano gratuito permite uso comercial.
+
+### Alternativa: upload direto (sem GitHub Actions)
+
+```bash
+npx wrangler login
+npx wrangler pages project create tm-info-ia --production-branch master
+npm run build
+npx wrangler pages deploy dist --project-name tm-info-ia
+```
+
+### Comparativo
 
 | Hospedagem | Custo | Uso comercial no plano grátis | Observação |
 | --- | --- | --- | --- |
-| Cloudflare Pages | R$ 0 | Sim | Melhor custo-benefício, CDN global |
+| GitHub Pages | R$ 0 | Sim | Já configurado, deploy automático |
+| Cloudflare Pages | R$ 0 | Sim | CDN global, requer conta Cloudflare |
 | Netlify | R$ 0 | Sim | 100 GB/mês, interface simples |
 | Vercel Hobby | R$ 0 | Não | Precisa do Pro (US$ 20/mês) para CNPJ |
-| GitHub Pages | R$ 0 | Sim | Sem CDN global, menos recursos |
 
 ## Domínio
 
@@ -79,6 +84,11 @@ Cada novo deploy é só repetir `npm run build && npx wrangler pages deploy dist
 
 ### Apontar o domínio
 
+- **GitHub Pages:** em **Settings → Pages → Custom domain**, informe `tminfoia.com.br` e
+  marque *Enforce HTTPS*. No painel DNS do Registro.br, crie quatro registros
+  `A @ → 185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` e
+  `CNAME www → thassysm.github.io`. Depois, troque `site` em `astro.config.mjs`,
+  `robots.txt` e `sitemap.xml` para o domínio novo.
 - **Cloudflare Pages:** adicione o domínio no Cloudflare, troque os nameservers no
   Registro.br pelos da Cloudflare e cadastre o domínio em *Custom domains*.
 - **Netlify:** no painel DNS do Registro.br, crie `A @ → 75.2.60.5` e

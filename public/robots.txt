@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tminfoia.com.br/sitemap.xml
+Sitemap: https://thassysm.github.io/sitemap.xml
