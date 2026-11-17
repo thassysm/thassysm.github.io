@@ -40,6 +40,7 @@ sua empresa (CNPJ), no Vercel seria necessário o plano Pro (US$ 20/mês).
    - Framework preset: **Astro**
    - Build command: `npm run build`
    - Output directory: `dist`
+   - Variável de ambiente: `NODE_VERSION` = `22.23.4` (Astro 7 exige Node ≥ 22.23.4)
 4. Em **Custom domains**, adicione `thassys.com.br` e `www.thassys.com.br`.
 5. Se o domínio estiver cadastrado no Cloudflare (nameservers apontando para ele),
    o DNS e o certificado SSL são criados automaticamente.
