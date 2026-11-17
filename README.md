@@ -1,4 +1,4 @@
-# Site — Thassys Meira
+# TM Info IA — site institucional
 
 Cartão de visita profissional (one-page) em [Astro](https://astro.build). 100% estático,
 sem banco de dados e sem custo de servidor. O build gera a pasta `dist/`, que roda em
@@ -33,7 +33,7 @@ O plano gratuito do Cloudflare Pages permite uso comercial e não cobra tráfego
 O plano Hobby do Vercel é **apenas para uso pessoal/não comercial** — como o site é da
 sua empresa (CNPJ), no Vercel seria necessário o plano Pro (US$ 20/mês).
 
-1. Crie um repositório no GitHub e envie este projeto.
+1. O repositório já está criado: <https://github.com/thassysm/thassys-site>.
 2. Em <https://dash.cloudflare.com> → **Workers & Pages** → **Create** → **Pages** →
    **Connect to Git**.
 3. Selecione o repositório e configure:
@@ -41,7 +41,7 @@ sua empresa (CNPJ), no Vercel seria necessário o plano Pro (US$ 20/mês).
    - Build command: `npm run build`
    - Output directory: `dist`
    - Variável de ambiente: `NODE_VERSION` = `22.23.4` (Astro 7 exige Node ≥ 22.23.4)
-4. Em **Custom domains**, adicione `thassys.com.br` e `www.thassys.com.br`.
+4. Em **Custom domains**, adicione `tminfoia.com.br` e `www.tminfoia.com.br`.
 5. Se o domínio estiver cadastrado no Cloudflare (nameservers apontando para ele),
    o DNS e o certificado SSL são criados automaticamente.
 
@@ -71,7 +71,7 @@ Cada novo deploy é só repetir `npm run build && npx wrangler pages deploy dist
 ## Domínio
 
 - **Registro.br** (`.com.br`): R$ 40/ano, registro com CPF ou CNPJ. Recomendado:
-  `thassys.com.br` (verificado como disponível em nov/2026).
+  `tminfoia.com.br` (verificado como disponível em nov/2026).
 - Alternativas internacionais: `.dev` / `.com` em Cloudflare Registrar, Namecheap ou
   Porkbun (US$ 10–15/ano).
 - **Não hospede o site na sua máquina** para acesso público: IP residencial dinâmico,

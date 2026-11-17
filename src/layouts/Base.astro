@@ -8,9 +8,9 @@ interface Props {
 }
 
 const {
-  title = `${profile.name} — ${profile.role} | Dados, BI, Automação e IA`,
+  title = 'TM Info IA — Engenharia de Dados, BI, Automação e IA',
   description =
-    'Engenheiro e analista de dados com 12+ anos de experiência em engenharia de dados, BI, ETL, automação e IA. Projetos entregues em saúde, finanças e corporativo. Curitiba, PR.',
+    'Engenharia de dados, BI, automação e IA aplicada. Pipelines, dashboards e automações que reduzem custo e colocam IA para funcionar — 12+ anos de experiência. Curitiba, PR.',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -19,7 +19,7 @@ const ogImage = new URL('/og.png', Astro.site).toString();
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: `${profile.name} — Engenharia e Análise de Dados`,
+  name: `${profile.brand} — Engenharia de Dados, BI e IA`,
   description,
   url: Astro.site?.toString(),
   image: ogImage,
@@ -72,7 +72,7 @@ const jsonLd = {
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:site_name" content={profile.brand} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
