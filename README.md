@@ -98,6 +98,51 @@ npx wrangler pages deploy dist --project-name tm-tech-ai
 
 O certificado HTTPS é emitido automaticamente em todos os casos.
 
+## E-mail corporativo grátis (Zoho Mail Free)
+
+O e-mail com domínio próprio é o único serviço que depende do domínio registrado.
+A opção gratuita mais completa é o **Zoho Mail Free**: 1 domínio, até 5 usuários,
+5 GB por caixa, sem anúncios.
+
+Limitação importante: o plano grátis funciona só no webmail e nos apps da Zoho —
+**não tem IMAP/POP**, então Outlook, Apple Mail e Thunderbird não conectam.
+Também é oferecido apenas em alguns data centers; confirme a disponibilidade no cadastro.
+
+1. Registre `tmtechai.com.br` no Registro.br.
+2. Crie a organização em <https://www.zoho.com/mail/> (plano **Forever Free**).
+3. Verifique o domínio com o TXT que a Zoho gerar.
+4. Crie a caixa `contato@tmtechai.com.br` (e aliases como `thassys@`).
+5. No painel DNS do Registro.br, adicione:
+
+```text
+MX   @    10  mx.zoho.com
+MX   @    20  mx2.zoho.com
+MX   @    50  mx3.zoho.com
+TXT  @        "v=spf1 include:zoho.com ~all"
+TXT  _dmarc   "v=DMARC1; p=none; rua=mailto:contato@tmtechai.com.br"
+```
+
+6. Ative o DKIM no painel da Zoho e copie o registro TXT gerado para o DNS.
+7. Troque `profile.email` em `src/data/site.ts` para o endereço novo.
+
+**Alternativa sem caixa de entrada:** Cloudflare Email Routing (grátis) encaminha
+`contato@tmtechai.com.br` para o Hotmail, mas não permite responder como o domínio.
+Exige mover os nameservers do domínio para o Cloudflare.
+
+## Agenda grátis (Cal.com)
+
+O site já tem dois botões de agendamento apontando para `profile.bookingUrl`
+(hoje `https://cal.com/tmtechai`).
+
+1. Crie a conta em <https://cal.com/signup> e use o handle `tmtechai`.
+2. Conecte seu Google Calendar (evita conflito de horários).
+3. Crie o evento **Conversa de 30 min**, com Google Meet e 2h de antecedência mínima.
+4. Ajuste a disponibilidade (dias e horários) e o fuso `America/Sao_Paulo`.
+5. Se o handle for diferente, altere `bookingUrl` em `src/data/site.ts`.
+
+O plano Free é gratuito para 1 usuário, com links e agendamentos ilimitados.
+Alternativas: Google Calendar (agendamento gratuito) ou Calendly Free (1 tipo de evento).
+
 ## Checklist antes de publicar
 
 - [ ] Revisar textos e números em `src/data/site.ts`

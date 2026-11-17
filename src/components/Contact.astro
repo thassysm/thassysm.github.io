@@ -49,6 +49,14 @@ const contacts = [
             direto com {profile.name}, fundador da {profile.brand} — sem intermediários.
           </p>
 
+          <div class="contact-actions">
+            <a class="btn btn--primary" href={profile.bookingUrl} target="_blank" rel="noopener">
+              <Icon name="calendar" size={17} />
+              Agendar conversa
+            </a>
+            <span class="contact-hint">30 min · Google Meet</span>
+          </div>
+
           <div class="contact-note">
             <span><Icon name="pin" size={14} /> Curitiba, PR — atendimento remoto</span>
             <span><Icon name="clock" size={14} /> Retorno em até 1 dia útil</span>

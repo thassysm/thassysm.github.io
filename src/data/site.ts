@@ -10,6 +10,7 @@ export const profile = {
   email: 'thassysm@hotmail.com',
   linkedin: 'https://linkedin.com/in/thassys',
   github: 'https://github.com/thassysm',
+  bookingUrl: 'https://cal.com/tmtechai',
   cnpj: '60.532.999/0001-41',
   years: '12+',
   whatsappMessage:
