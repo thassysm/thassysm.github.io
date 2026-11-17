@@ -1504,6 +1504,12 @@ p {
   }
 }
 
+@media (max-width: 1080px) {
+  .brand-role {
+    display: none;
+  }
+}
+
 @media (max-width: 860px) {
   .nav-links {
     display: none;

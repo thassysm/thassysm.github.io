@@ -1,7 +1,7 @@
 // Todo o conteúdo do site fica aqui — edite este arquivo para atualizar textos.
 export const profile = {
-  brand: 'TM Info IA',
-  brandTagline: 'Dados · BI · Automação · IA',
+  brand: 'TM Tech & AI',
+  brandTagline: 'Dados, BI, engenharia de dados e IA',
   name: 'Thassys Meira',
   role: 'Engenheiro & Analista de Dados',
   city: 'Curitiba, PR',

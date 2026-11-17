@@ -42,8 +42,8 @@ const svg = `
     <circle cx="39" cy="13" r="3.2" fill="#4af0b4"/>
   </g>
 
-  <text x="144" y="84" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#e9effa" letter-spacing="1">TM INFO IA</text>
-  <text x="144" y="110" font-family="DejaVu Sans Mono" font-size="13" fill="#6b7c96" letter-spacing="2.4">DADOS · BI · AUTOMAÇÃO · IA APLICADA</text>
+  <text x="144" y="84" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#e9effa" letter-spacing="1">TM TECH &amp; AI</text>
+  <text x="144" y="110" font-family="DejaVu Sans Mono" font-size="13" fill="#6b7c96" letter-spacing="2.4">DADOS · BI · ENGENHARIA DE DADOS · IA</text>
 
   <text x="72" y="252" font-family="DejaVu Sans" font-size="62" font-weight="bold" fill="#eef4ff" letter-spacing="-1.5">Dados que viram</text>
   <text x="72" y="330" font-family="DejaVu Sans" font-size="62" font-weight="bold" fill="url(#accent)" letter-spacing="-1.5">decisão e resultado.</text>
@@ -66,7 +66,7 @@ const svg = `
     <text x="932" y="542" font-size="17" fill="#93a3bc">mais precisão em IA</text>
   </g>
 
-  <text x="72" y="596" font-family="DejaVu Sans Mono" font-size="14" fill="#6b7c96">tminfoia.com.br · Thassys Meira · Curitiba, PR · CNPJ 60.532.999/0001-41</text>
+  <text x="72" y="596" font-family="DejaVu Sans Mono" font-size="14" fill="#6b7c96">tmtechai.com.br · Thassys Meira · Curitiba, PR · CNPJ 60.532.999/0001-41</text>
 </svg>
 `;
 

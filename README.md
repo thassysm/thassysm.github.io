@@ -1,4 +1,4 @@
-# TM Info IA — site institucional
+# TM Tech & AI — site institucional
 
 Cartão de visita profissional (one-page) em [Astro](https://astro.build). 100% estático,
 sem banco de dados e sem custo de servidor. O build gera a pasta `dist/`, que roda em
@@ -59,9 +59,9 @@ defina `NODE_VERSION=22.23.4`. O plano gratuito permite uso comercial.
 
 ```bash
 npx wrangler login
-npx wrangler pages project create tm-info-ia --production-branch master
+npx wrangler pages project create tm-tech-ai --production-branch master
 npm run build
-npx wrangler pages deploy dist --project-name tm-info-ia
+npx wrangler pages deploy dist --project-name tm-tech-ai
 ```
 
 ### Comparativo
@@ -76,7 +76,7 @@ npx wrangler pages deploy dist --project-name tm-info-ia
 ## Domínio
 
 - **Registro.br** (`.com.br`): R$ 40/ano, registro com CPF ou CNPJ. Recomendado:
-  `tminfoia.com.br` (verificado como disponível em nov/2026).
+  `tmtechai.com.br` (verificado como disponível em nov/2026).
 - Alternativas internacionais: `.dev` / `.com` em Cloudflare Registrar, Namecheap ou
   Porkbun (US$ 10–15/ano).
 - **Não hospede o site na sua máquina** para acesso público: IP residencial dinâmico,
@@ -84,7 +84,7 @@ npx wrangler pages deploy dist --project-name tm-info-ia
 
 ### Apontar o domínio
 
-- **GitHub Pages:** em **Settings → Pages → Custom domain**, informe `tminfoia.com.br` e
+- **GitHub Pages:** em **Settings → Pages → Custom domain**, informe `tmtechai.com.br` e
   marque *Enforce HTTPS*. No painel DNS do Registro.br, crie quatro registros
   `A @ → 185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` e
   `CNAME www → thassysm.github.io`. Depois, troque `site` em `astro.config.mjs`,
