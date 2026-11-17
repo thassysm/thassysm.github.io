@@ -48,7 +48,7 @@ const svg = `
   <text x="72" y="252" font-family="DejaVu Sans" font-size="62" font-weight="bold" fill="#eef4ff" letter-spacing="-1.5">Dados que viram</text>
   <text x="72" y="330" font-family="DejaVu Sans" font-size="62" font-weight="bold" fill="url(#accent)" letter-spacing="-1.5">decisão e resultado.</text>
 
-  <text x="72" y="390" font-family="DejaVu Sans" font-size="24" fill="#93a3bc">Engenharia de dados · BI · Automação · IA aplicada</text>
+  <text x="72" y="390" font-family="DejaVu Sans" font-size="24" fill="#93a3bc">Dados · BI · Engenharia de dados · IA aplicada</text>
 
   <line x1="72" y1="446" x2="1128" y2="446" stroke="#8caad2" stroke-opacity="0.18"/>
 
@@ -66,7 +66,7 @@ const svg = `
     <text x="932" y="542" font-size="17" fill="#93a3bc">mais precisão em IA</text>
   </g>
 
-  <text x="72" y="596" font-family="DejaVu Sans Mono" font-size="14" fill="#6b7c96">tmtechai.com.br · Thassys Meira · Curitiba, PR · CNPJ 60.532.999/0001-41</text>
+  <text x="72" y="596" font-family="DejaVu Sans Mono" font-size="14" fill="#6b7c96">Thassys Meira · Curitiba, PR · CNPJ 60.532.999/0001-41</text>
 </svg>
 `;
 
