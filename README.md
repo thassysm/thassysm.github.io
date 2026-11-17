@@ -44,6 +44,20 @@ sua empresa (CNPJ), no Vercel seria necessário o plano Pro (US$ 20/mês).
 5. Se o domínio estiver cadastrado no Cloudflare (nameservers apontando para ele),
    o DNS e o certificado SSL são criados automaticamente.
 
+### Publicar sem GitHub (upload direto via CLI)
+
+Útil para colocar no ar hoje, com URL `https://thassys-site.pages.dev`:
+
+```bash
+npx wrangler login                                  # abre o navegador para autorizar
+npx wrangler pages project create thassys-site --production-branch main
+npm run build
+npx wrangler pages deploy dist --project-name thassys-site
+```
+
+Depois, em **Custom domains**, basta adicionar o domínio quando ele for registrado.
+Cada novo deploy é só repetir `npm run build && npx wrangler pages deploy dist --project-name thassys-site`.
+
 ### Alternativas
 
 | Hospedagem | Custo | Uso comercial no plano grátis | Observação |
